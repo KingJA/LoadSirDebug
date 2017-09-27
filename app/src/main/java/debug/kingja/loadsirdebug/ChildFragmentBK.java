@@ -16,6 +16,7 @@ import butterknife.BindView;
  * Email:kingjavip@gmail.com
  */
 public class ChildFragmentBK extends BaseFragmentBK {
+
     @BindView(R.id.tv_fragment_msg)
     TextView mTv_Fragment_msg;
 
@@ -30,7 +31,7 @@ public class ChildFragmentBK extends BaseFragmentBK {
         mTv_Fragment_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("mTv_Fragment_msg", "onClick: ");
+                Log.e("ChildFragmentBK", "onClick: ");
                 Toast.makeText(getActivity(), "onClick", Toast.LENGTH_SHORT).show();
             }
         });
