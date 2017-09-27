@@ -36,4 +36,10 @@ public class ChildFragmentBK extends BaseFragmentBK {
             }
         });
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unBinder.unbind();
+    }
 }

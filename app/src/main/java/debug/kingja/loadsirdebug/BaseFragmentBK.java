@@ -15,6 +15,7 @@ import com.kingja.loadsir.core.LoadSir;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Description:TODO
@@ -25,8 +26,7 @@ import butterknife.ButterKnife;
 public abstract class BaseFragmentBK extends Fragment {
 
     protected LoadService loadService;
-//    @BindView(R.id.tv_fragment_msg)
-//    TextView mTv_Fragment_msg;
+    protected Unbinder unBinder;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public abstract class BaseFragmentBK extends Fragment {
             savedInstanceState) {
 //        View rootView = View.inflate(getActivity(), R.layout.fragment_bk, null);
         View rootView = inflater.inflate(getLayoutId(), container, false);
-        ButterKnife.bind(this, rootView);
+        unBinder = ButterKnife.bind(this, rootView);
 
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new EmptyCallback())
