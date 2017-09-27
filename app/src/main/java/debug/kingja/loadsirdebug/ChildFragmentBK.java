@@ -22,7 +22,7 @@ public class ChildFragmentBK extends BaseFragmentBK {
 
     @Override
     int getLayoutId() {
-        return R.layout.fragment_bk;
+        return R.layout.fragment_child_bk;
     }
 
     @Override
