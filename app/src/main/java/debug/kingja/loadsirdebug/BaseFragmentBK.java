@@ -22,11 +22,11 @@ import butterknife.ButterKnife;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class FragmentBK extends Fragment {
+public abstract class BaseFragmentBK extends Fragment {
 
-    private LoadService loadService;
-    @BindView(R.id.tv_fragment_msg)
-    TextView mTv_Fragment_msg;
+    protected LoadService loadService;
+//    @BindView(R.id.tv_fragment_msg)
+//    TextView mTv_Fragment_msg;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class FragmentBK extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
 //        View rootView = View.inflate(getActivity(), R.layout.fragment_bk, null);
-        View rootView = inflater.inflate(R.layout.fragment_bk, container, false);
+        View rootView = inflater.inflate(getLayoutId(), container, false);
         ButterKnife.bind(this, rootView);
 
         LoadSir loadSir = new LoadSir.Builder()
@@ -52,13 +52,8 @@ public class FragmentBK extends Fragment {
 
         });
         loadService.showCallback(EmptyCallback.class);
-
-        mTv_Fragment_msg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("mTv_Fragment_msg", "onClick: " );
-            }
-        });
         return loadService.getLoadLayout();
     }
+
+    abstract int getLayoutId();
 }

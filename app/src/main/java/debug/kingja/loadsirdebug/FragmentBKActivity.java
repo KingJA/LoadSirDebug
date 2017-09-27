@@ -16,7 +16,7 @@ public class FragmentBKActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_fragment);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.ll_content,new FragmentBK()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.ll_content,new ChildFragmentBK()).commit();
 
     }
 }
