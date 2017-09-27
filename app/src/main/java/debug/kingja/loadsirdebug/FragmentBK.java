@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kingja.loadsir.callback.Callback;
@@ -15,6 +16,8 @@ import com.kingja.loadsir.core.LoadSir;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static debug.kingja.loadsirdebug.R.id.ll_rootView;
 
 /**
  * Description:TODO
@@ -38,13 +41,14 @@ public class FragmentBK extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
 //        View rootView = View.inflate(getActivity(), R.layout.fragment_bk, null);
-        View rootView = inflater.inflate(R.layout.fragment_bk, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_bk, container, false);
         ButterKnife.bind(this, rootView);
+        LinearLayout ll_content = rootView.findViewById(R.id.ll_content);
 
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new EmptyCallback())
                 .build();
-        loadService = loadSir.register(rootView, new Callback.OnReloadListener() {
+        loadService = loadSir.register(ll_content, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 loadService.showSuccess();
